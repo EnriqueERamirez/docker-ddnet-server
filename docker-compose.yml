@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  ddnet-server:
+    #container_name: ddnet_server_container
+    #build: .
+    image: ddnet_server_custom:latest
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    ports:
+      - "8303:8303/udp"
+    volumes:
+      - ./data:/ddnet/DDNet-Server/data
+    restart: unless-stopped
+
